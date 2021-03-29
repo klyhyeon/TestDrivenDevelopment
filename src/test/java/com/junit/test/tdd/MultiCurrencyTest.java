@@ -2,18 +2,39 @@ package com.junit.test.tdd;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MultiCurrencyTest {
 
     @Test
     public void testMultiplication() {
-        Dollar five = new Dollar(5);
-        Dollar product = five.times(2);
-        assertEquals(10, product.amount);
-        product = five.times(3);
-        assertEquals(15, product.amount);
+        Money five = new Dollar();
+        five.amount = 5;
+        assertEquals(5, five.amount);
     }
+
+    @Test
+    public void testExtensionMultiplication() {
+        Money five = new Dollar();
+        five.amount = 5;
+        Money six = new Dollar();
+        six.amount = 6;
+        assertFalse(five.equals(six));
+    }
+
+    @Test
+    public void testFrancMultiplication() {
+        Money five = new Franc();
+        five.amount = 5;
+        assertTrue(five.equals(five.times(1)));
+    }
+
+    @Test
+    public void testEquality() {
+        assertEquals(new Money(5), new Money(5));
+    }
+
+
 
 }

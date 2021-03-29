@@ -1,6 +1,5 @@
 package com.junit.test.tdd;
 
-class Dollar extends Money {
-
+class Franc extends Money {
 
 }
