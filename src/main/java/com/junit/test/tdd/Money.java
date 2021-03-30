@@ -1,6 +1,6 @@
 package com.junit.test.tdd;
 
-public class Money {
+abstract class Money {
 
     protected int amount;
 
@@ -14,11 +14,18 @@ public class Money {
 
     public boolean equals(Object object) {
         Money money = (Money) object;
-        return amount == money.amount;
+        return amount == money.amount
+                && getClass().equals(money.getClass());
     }
 
-    Money times(int multiplier) {
-        return new Money(amount * multiplier);
+    static Money dollar(int amount) {
+        return new Dollar(amount);
     }
+
+    static Money franc(int amount) {
+        return new Franc(amount);
+    }
+
+    abstract Money times(int multiplier);
 
 }

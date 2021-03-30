@@ -9,30 +9,25 @@ public class MultiCurrencyTest {
 
     @Test
     public void testMultiplication() {
-        Money five = new Dollar();
-        five.amount = 5;
-        assertEquals(5, five.amount);
     }
 
     @Test
     public void testExtensionMultiplication() {
-        Money five = new Dollar();
-        five.amount = 5;
-        Money six = new Dollar();
-        six.amount = 6;
-        assertFalse(five.equals(six));
     }
 
     @Test
     public void testFrancMultiplication() {
-        Money five = new Franc();
-        five.amount = 5;
-        assertTrue(five.equals(five.times(1)));
+        Money dollarMultiple = Money.dollar(5);
+        assertEquals(dollarMultiple, dollarMultiple.times(2));
     }
 
     @Test
     public void testEquality() {
-        assertEquals(new Money(5), new Money(5));
+        Money dollar1 = new Dollar(5);
+        Money dollar2 = new Dollar(5);
+        Money franc1 = new Franc(5);
+        Money franc2 = new Franc(5);
+        assertTrue(franc1.equals(franc2));
     }
 
 
