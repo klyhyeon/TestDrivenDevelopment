@@ -1,4 +1,4 @@
-package com.junit.test.domain;
+package com.junit.domain;
 
 public class Car {
 

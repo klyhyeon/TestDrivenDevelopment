@@ -1,4 +1,4 @@
-package com.junit.test.tdd;
+package com.junit.tdd;
 
 class Dollar extends Money {
 

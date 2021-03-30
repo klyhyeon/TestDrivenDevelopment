@@ -1,6 +1,6 @@
-package com.junit.test.controller;
+package com.junit.controller;
 
-import com.junit.test.domain.Car;
+import com.junit.domain.Car;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
