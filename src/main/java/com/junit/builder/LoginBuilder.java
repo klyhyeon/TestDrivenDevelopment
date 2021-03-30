@@ -1,6 +1,6 @@
-package com.junit.test.builder;
+package com.junit.builder;
 
-import com.junit.test.domain.Login;
+import com.junit.domain.Login;
 
 public class LoginBuilder {
 
