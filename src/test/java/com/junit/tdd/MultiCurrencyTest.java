@@ -35,6 +35,12 @@ public class MultiCurrencyTest {
         assertEquals("CHF", Money.franc(1).currency());
     }
 
+    @Test
+    public void testTimesReturnConstructor() {
+        assertTrue(new Money(10, "CHF").times(4).equals(
+                new Franc(10, "CHF").times(4)));
+    }
+
 
 
 }

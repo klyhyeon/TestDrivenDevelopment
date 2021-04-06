@@ -1,6 +1,6 @@
 package com.junit.tdd;
 
-abstract class Money {
+class Money {
 
     protected int amount;
     protected String currency;
@@ -21,7 +21,7 @@ abstract class Money {
     public boolean equals(Object object) {
         Money money = (Money) object;
         return amount == money.amount
-                && getClass().equals(money.getClass());
+                && currency().equals(money.currency());
     }
 
     static Money dollar(int amount) {
@@ -32,6 +32,12 @@ abstract class Money {
         return new Franc(amount, "CHF");
     }
 
-    abstract Money times(int multiplier);
+    Money times(int multiplier) {
+        return new Money(amount * multiplier, currency);
+    }
+
+    public String toString() {
+        return amount + " " + currency;
+    }
 
 }
