@@ -29,9 +29,7 @@ dependencies {
 	}
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-	// https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter
 	implementation group: 'com.github.ulisesbocchio', name: 'jasypt-spring-boot-starter', version: '2.1.0'
-
 }
 
 test {

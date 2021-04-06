@@ -1,6 +1,6 @@
 package com.junit.domain;
 
-public class Car {
+public class Car1 {
 
     private String name;
     private String type;
