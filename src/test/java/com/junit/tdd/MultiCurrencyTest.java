@@ -1,7 +1,6 @@
 package com.junit.tdd;
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -23,11 +22,17 @@ public class MultiCurrencyTest {
 
     @Test
     public void testEquality() {
-        Money dollar1 = new Dollar(5);
-        Money dollar2 = new Dollar(5);
-        Money franc1 = new Franc(5);
-        Money franc2 = new Franc(5);
+        Money dollar1 = Money.dollar(5);
+        Money dollar2 = Money.dollar(5);
+        Money franc1 = Money.franc(5);
+        Money franc2 = Money.franc(5);
         assertTrue(franc1.equals(franc2));
+    }
+
+    @Test
+    public void testCurrency() {
+        assertEquals("USD", Money.dollar(1).currency());
+        assertEquals("CHF", Money.franc(1).currency());
     }
 
 
