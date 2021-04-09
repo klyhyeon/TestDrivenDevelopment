@@ -7,14 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MultiCurrencyTest {
 
     @Test
-    public void testMultiplication() {
-    }
-
-    @Test
-    public void testExtensionMultiplication() {
-    }
-
-    @Test
     public void testFrancMultiplication() {
         Money dollarMultiple = Money.dollar(5);
         assertEquals(dollarMultiple, dollarMultiple.times(2));
@@ -36,9 +28,31 @@ public class MultiCurrencyTest {
     }
 
     @Test
-    public void testTimesReturnConstructor() {
-        assertTrue(new Money(10, "CHF").times(4).equals(
-                new Franc(10, "CHF").times(4)));
+    public void testSimpleAddition() {
+        Money five = Money.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Money reduced = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10), reduced);
+    }
+
+    @Test
+    public void testPlusReturnsSum() {
+        Money five = Money.dollar(5);
+        Expression result = five.plus(five);
+        Sum sum = (Sum) result;
+        Bank bank = new Bank();
+        Money reduced = bank.reduce(sum, "USD");
+        assertEquals(five, sum.augend);
+        assertEquals(five, sum.addend);
+    }
+
+    @Test
+    public void testReduceSum() {
+        Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
     }
 
 
