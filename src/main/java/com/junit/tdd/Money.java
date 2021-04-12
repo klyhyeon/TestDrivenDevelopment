@@ -1,6 +1,8 @@
 package com.junit.tdd;
 
-class Money implements Expression {
+import com.junit.tdd.interfaces.Expression;
+
+public class Money implements Expression {
 
     protected int amount;
     protected String currency;
@@ -38,6 +40,10 @@ class Money implements Expression {
 
     Expression plus(Money addend) {
         return new Sum(this, addend);
+    }
+
+    public Money reduce(String to) {
+        return this;
     }
 
 }
